@@ -1,0 +1,14 @@
+C:\Users\s4lsa\source\repos\Hydra\ExtremeAntiDump\obj\x64\Debug\Antidump.csproj.AssemblyReference.cache
+C:\Users\s4lsa\source\repos\Hydra\ExtremeAntiDump\obj\x64\Debug\Antidump.Properties.Resources.resources
+C:\Users\s4lsa\source\repos\Hydra\ExtremeAntiDump\obj\x64\Debug\Antidump.csproj.GenerateResource.cache
+C:\Users\s4lsa\source\repos\Hydra\ExtremeAntiDump\obj\x64\Debug\Antidump.csproj.CoreCompileInputs.cache
+C:\Users\s4lsa\source\repos\Hydra\ExtremeAntiDump\bin\x64\Debug\Antidump.dll.config
+C:\Users\s4lsa\source\repos\Hydra\ExtremeAntiDump\bin\x64\Debug\Antidump.dll
+C:\Users\s4lsa\source\repos\Hydra\ExtremeAntiDump\bin\x64\Debug\Antidump.pdb
+C:\Users\s4lsa\source\repos\Hydra\ExtremeAntiDump\bin\x64\Debug\dnlib.dll
+C:\Users\s4lsa\source\repos\Hydra\ExtremeAntiDump\bin\x64\Debug\NativeSharp.dll
+C:\Users\s4lsa\source\repos\Hydra\ExtremeAntiDump\bin\x64\Debug\dnlib.xml
+C:\Users\s4lsa\source\repos\Hydra\ExtremeAntiDump\bin\x64\Debug\NativeSharp.xml
+C:\Users\s4lsa\source\repos\Hydra\ExtremeAntiDump\obj\x64\Debug\Antidump.csproj.Up2Date
+C:\Users\s4lsa\source\repos\Hydra\ExtremeAntiDump\obj\x64\Debug\Antidump.dll
+C:\Users\s4lsa\source\repos\Hydra\ExtremeAntiDump\obj\x64\Debug\Antidump.pdb

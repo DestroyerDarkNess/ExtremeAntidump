@@ -1,0 +1,1084 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NativeSharp</name>
+    </assembly>
+    <members>
+        <member name="T:NativeSharp.ExportFunctionInfo">
+            <summary>
+            导出函数信息
+            </summary>
+        </member>
+        <member name="F:NativeSharp.ExportFunctionInfo.Empty">
+            <summary>
+            表示一个空的实例
+            </summary>
+        </member>
+        <member name="P:NativeSharp.ExportFunctionInfo.Address">
+            <summary>
+            地址
+            </summary>
+        </member>
+        <member name="P:NativeSharp.ExportFunctionInfo.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:NativeSharp.ExportFunctionInfo.Ordinal">
+            <summary>
+            序号
+            </summary>
+        </member>
+        <member name="M:NativeSharp.ExportFunctionInfo.#ctor(System.Void*,System.String,System.UInt16)">
+            <summary>
+            构造器
+            </summary>
+            <param name="address">地址</param>
+            <param name="name">名称</param>
+            <param name="ordinal">序号</param>
+        </member>
+        <member name="T:NativeSharp.NativeModule">
+            <summary>
+            Win32模块
+            </summary>
+        </member>
+        <member name="M:NativeSharp.NativeModule.GetFunctionAddress(System.String)">
+            <summary>
+            通过函数名获取导出函数地址
+            </summary>
+            <param name="functionName">函数名</param>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeModule.EnumerateFunctionInfos">
+            <summary>
+            获取所有导出函数信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:NativeSharp.NativeModule.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:NativeSharp.NativeModule.ImagePath">
+            <summary>
+            文件路径
+            </summary>
+        </member>
+        <member name="M:NativeSharp.NativeModule.ToString">
+            <summary />
+        </member>
+        <member name="P:NativeSharp.NativeModule.Process">
+            <summary>
+            所属进程
+            </summary>
+        </member>
+        <member name="P:NativeSharp.NativeModule.Handle">
+            <summary>
+            模块句柄
+            </summary>
+        </member>
+        <member name="P:NativeSharp.NativeModule.IsInvalid">
+            <summary>
+            当前句柄是否为无效句柄
+            </summary>
+        </member>
+        <member name="M:NativeSharp.NativeModule.#ctor(NativeSharp.NativeProcess,System.IntPtr)">
+            <summary>
+            构造器
+            </summary>
+            <param name="process">Win32进程</param>
+            <param name="handle">模块句柄</param>
+        </member>
+        <member name="M:NativeSharp.NativeModule.#ctor(NativeSharp.NativeProcess,System.Void*)">
+            <summary>
+            构造器
+            </summary>
+            <param name="process">Win32进程</param>
+            <param name="handle">模块句柄</param>
+        </member>
+        <member name="T:NativeSharp.InjectionClrVersion">
+            <summary>
+            注入时使用的CLR版本
+            </summary>
+        </member>
+        <member name="F:NativeSharp.InjectionClrVersion.Auto">
+            <summary>
+            自动选择，由要注入的程序集本身决定
+            </summary>
+        </member>
+        <member name="F:NativeSharp.InjectionClrVersion.V2">
+            <summary>
+            v2.0.50727
+            </summary>
+        </member>
+        <member name="F:NativeSharp.InjectionClrVersion.V4">
+            <summary>
+            v4.0.30319
+            </summary>
+        </member>
+        <member name="T:NativeSharp.NativeProcess">
+            <summary>
+            Win32进程
+            </summary>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.InjectManaged(System.String,System.String,System.String,System.String)">
+            <summary>
+            注入托管DLL
+            </summary>
+            <param name="assemblyPath">要注入程序集的路径</param>
+            <param name="typeName">类型名（命名空间+类型名，比如NamespaceA.ClassB）</param>
+            <param name="methodName">方法名（比如MethodC），该方法必须具有此类签名static int MethodName(string)，比如private static int InjectingMain(string argument)</param>
+            <param name="argument">参数，可传入 <see langword="null"/></param>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.InjectManaged(System.String,System.String,System.String,System.String,NativeSharp.InjectionClrVersion)">
+            <summary>
+            注入托管DLL
+            </summary>
+            <param name="assemblyPath">要注入程序集的路径</param>
+            <param name="typeName">类型名（命名空间+类型名，比如NamespaceA.ClassB）</param>
+            <param name="methodName">方法名（比如MethodC），该方法必须具有此类签名static int MethodName(string)，比如private static int InjectingMain(string argument)</param>
+            <param name="argument">参数，可传入 <see langword="null"/></param>
+            <param name="clrVersion">使用的CLR版本</param>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.InjectManaged(System.String,System.String,System.String,System.String,System.Int32@)">
+            <summary>
+            注入托管DLL，并获取被调用方法的返回值（警告：被调用方法返回后才能获取到返回值，<see cref="M:NativeSharp.NativeProcess.InjectManaged(System.String,System.String,System.String,System.String,System.Int32@)"/>方法将一直等待到被调用方法返回。如果仅注入程序集而不需要获取返回值，请使用重载版本<see cref="M:NativeSharp.NativeProcess.InjectManaged(System.String,System.String,System.String,System.String)"/>）
+            </summary>
+            <param name="assemblyPath">要注入程序集的路径</param>
+            <param name="typeName">类型名（命名空间+类型名，比如NamespaceA.ClassB）</param>
+            <param name="methodName">方法名（比如MethodC），该方法必须具有此类签名static int MethodName(string)，比如private static int InjectingMain(string argument)</param>
+            <param name="argument">参数，可传入 <see langword="null"/></param>
+            <param name="returnValue">被调用方法返回的整数值</param>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.InjectManaged(System.String,System.String,System.String,System.String,NativeSharp.InjectionClrVersion,System.Int32@)">
+            <summary>
+            注入托管DLL，并获取被调用方法的返回值（警告：被调用方法返回后才能获取到返回值，<see cref="M:NativeSharp.NativeProcess.InjectManaged(System.String,System.String,System.String,System.String,System.Int32@)"/>方法将一直等待到被调用方法返回。如果仅注入程序集而不需要获取返回值，请使用重载版本<see cref="M:NativeSharp.NativeProcess.InjectManaged(System.String,System.String,System.String,System.String)"/>）
+            </summary>
+            <param name="assemblyPath">要注入程序集的路径</param>
+            <param name="typeName">类型名（命名空间+类型名，比如NamespaceA.ClassB）</param>
+            <param name="methodName">方法名（比如MethodC），该方法必须具有此类签名static int MethodName(string)，比如private static int InjectingMain(string argument)</param>
+            <param name="argument">参数，可传入 <see langword="null"/></param>
+            <param name="clrVersion">使用的CLR版本</param>
+            <param name="returnValue">被调用方法返回的整数值</param>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.InjectUnmanaged(System.String)">
+            <summary>
+            注入非托管DLL
+            </summary>
+            <param name="dllPath">要注入DLL的路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.ToAddress(NativeSharp.Pointer)">
+            <summary>
+            获取指针指向的地址
+            </summary>
+            <param name="pointer">指针</param>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.TryToAddress(NativeSharp.Pointer,System.Void*@)">
+            <summary>
+            获取指针指向的地址
+            </summary>
+            <param name="pointer">指针</param>
+            <param name="address"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.ReadByte(System.Void*)">
+            <summary>
+            读取内存
+            </summary>
+            <param name="address">地址</param>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.ReadInt16(System.Void*)">
+            <summary>
+            读取内存
+            </summary>
+            <param name="address">地址</param>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.ReadUInt16(System.Void*)">
+            <summary>
+            读取内存
+            </summary>
+            <param name="address">地址</param>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.ReadInt32(System.Void*)">
+            <summary>
+            读取内存
+            </summary>
+            <param name="address">地址</param>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.ReadUInt32(System.Void*)">
+            <summary>
+            读取内存
+            </summary>
+            <param name="address">地址</param>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.ReadInt64(System.Void*)">
+            <summary>
+            读取内存
+            </summary>
+            <param name="address">地址</param>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.ReadUInt64(System.Void*)">
+            <summary>
+            读取内存
+            </summary>
+            <param name="address">地址</param>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.ReadIntPtr(System.Void*)">
+            <summary>
+            读取内存
+            </summary>
+            <param name="address">地址</param>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.ReadUIntPtr(System.Void*)">
+            <summary>
+            读取内存
+            </summary>
+            <param name="address">地址</param>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.ReadSingle(System.Void*)">
+            <summary>
+            读取内存
+            </summary>
+            <param name="address">地址</param>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.ReadDouble(System.Void*)">
+            <summary>
+            读取内存
+            </summary>
+            <param name="address">地址</param>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.ReadBytes(System.Void*,System.Byte[])">
+            <summary>
+            读取内存
+            </summary>
+            <param name="address">地址</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.ReadBytes(System.Void*,System.Byte[],System.UInt32,System.UInt32)">
+            <summary>
+            读取内存
+            </summary>
+            <param name="address">地址</param>
+            <param name="value">值</param>
+            <param name="startIndex">从 <paramref name="value"/> 的指定偏移处开始</param>
+            <param name="length">长度</param>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.ReadString(System.Void*,System.Boolean,System.Text.Encoding)">
+            <summary>
+            读取内存
+            </summary>
+            <param name="address">地址</param>
+            <param name="isEndWithDoubleZero">字符串是否以2个\0结尾</param>
+            <param name="fromEncoding">内存中字符串的编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.TryReadByte(System.Void*,System.Byte@)">
+            <summary>
+            读取内存
+            </summary>
+            <param name="address">地址</param>
+            <param name="value">值</param>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.TryReadInt16(System.Void*,System.Int16@)">
+            <summary>
+            读取内存
+            </summary>
+            <param name="address">地址</param>
+            <param name="value">值</param>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.TryReadUInt16(System.Void*,System.UInt16@)">
+            <summary>
+            读取内存
+            </summary>
+            <param name="address">地址</param>
+            <param name="value">值</param>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.TryReadInt32(System.Void*,System.Int32@)">
+            <summary>
+            读取内存
+            </summary>
+            <param name="address">地址</param>
+            <param name="value">值</param>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.TryReadUInt32(System.Void*,System.UInt32@)">
+            <summary>
+            读取内存
+            </summary>
+            <param name="address">地址</param>
+            <param name="value">值</param>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.TryReadInt64(System.Void*,System.Int64@)">
+            <summary>
+            读取内存
+            </summary>
+            <param name="address">地址</param>
+            <param name="value">值</param>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.TryReadUInt64(System.Void*,System.UInt64@)">
+            <summary>
+            读取内存
+            </summary>
+            <param name="address">地址</param>
+            <param name="value">值</param>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.TryReadIntPtr(System.Void*,System.IntPtr@)">
+            <summary>
+            读取内存
+            </summary>
+            <param name="address">地址</param>
+            <param name="value">值</param>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.TryReadUIntPtr(System.Void*,System.UIntPtr@)">
+            <summary>
+            读取内存
+            </summary>
+            <param name="address">地址</param>
+            <param name="value">值</param>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.TryReadSingle(System.Void*,System.Single@)">
+            <summary>
+            读取内存
+            </summary>
+            <param name="address">地址</param>
+            <param name="value">值</param>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.TryReadDouble(System.Void*,System.Double@)">
+            <summary>
+            读取内存
+            </summary>
+            <param name="address">地址</param>
+            <param name="value">值</param>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.TryReadBytes(System.Void*,System.Byte[])">
+            <summary>
+            读取内存
+            </summary>
+            <param name="address">地址</param>
+            <param name="value">值</param>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.TryReadBytes(System.Void*,System.Byte[],System.UInt32,System.UInt32)">
+            <summary>
+            读取内存
+            </summary>
+            <param name="address">地址</param>
+            <param name="value">值</param>
+            <param name="startIndex">从 <paramref name="value"/> 的指定偏移处开始</param>
+            <param name="length">长度</param>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.TryReadString(System.Void*,System.String@,System.Boolean,System.Text.Encoding)">
+            <summary>
+            读取内存
+            </summary>
+            <param name="address">地址</param>
+            <param name="value">值</param>
+            <param name="isEndWithDoubleZero">字符串是否以2个\0结尾</param>
+            <param name="fromEncoding">内存中字符串的编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.WriteByte(System.Void*,System.Byte)">
+            <summary>
+            写入内存
+            </summary>
+            <param name="address">地址</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.WriteInt16(System.Void*,System.Int16)">
+            <summary>
+            写入内存
+            </summary>
+            <param name="address">地址</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.WriteUInt16(System.Void*,System.UInt16)">
+            <summary>
+            写入内存
+            </summary>
+            <param name="address">地址</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.WriteInt32(System.Void*,System.Int32)">
+            <summary>
+            写入内存
+            </summary>
+            <param name="address">地址</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.WriteUInt32(System.Void*,System.UInt32)">
+            <summary>
+            写入内存
+            </summary>
+            <param name="address">地址</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.WriteInt64(System.Void*,System.Int64)">
+            <summary>
+            写入内存
+            </summary>
+            <param name="address">地址</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.WriteUInt64(System.Void*,System.UInt64)">
+            <summary>
+            写入内存
+            </summary>
+            <param name="address">地址</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.WriteIntPtr(System.Void*,System.IntPtr)">
+            <summary>
+            写入内存
+            </summary>
+            <param name="address">地址</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.WriteUIntPtr(System.Void*,System.UIntPtr)">
+            <summary>
+            写入内存
+            </summary>
+            <param name="address">地址</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.WriteSingle(System.Void*,System.Single)">
+            <summary>
+            写入内存
+            </summary>
+            <param name="address">地址</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.WriteDouble(System.Void*,System.Double)">
+            <summary>
+            写入内存
+            </summary>
+            <param name="address">地址</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.WriteBytes(System.Void*,System.Byte[])">
+            <summary>
+            写入内存
+            </summary>
+            <param name="address">地址</param>
+            <param name="value">值</param>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.WriteBytes(System.Void*,System.Byte[],System.UInt32,System.UInt32)">
+            <summary>
+            写入内存
+            </summary>
+            <param name="address">地址</param>
+            <param name="value">值</param>
+            <param name="startIndex">从 <paramref name="value"/> 的指定偏移处开始</param>
+            <param name="length">长度</param>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.WriteString(System.Void*,System.String,System.Text.Encoding)">
+            <summary>
+            写入内存
+            </summary>
+            <param name="address">地址</param>
+            <param name="value">值</param>
+            <param name="toEncoding">内存中字符串的编码</param>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.TryWriteByte(System.Void*,System.Byte)">
+            <summary>
+            写入内存
+            </summary>
+            <param name="address">地址</param>
+            <param name="value">值</param>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.TryWriteInt16(System.Void*,System.Int16)">
+            <summary>
+            写入内存
+            </summary>
+            <param name="address">地址</param>
+            <param name="value">值</param>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.TryWriteUInt16(System.Void*,System.UInt16)">
+            <summary>
+            写入内存
+            </summary>
+            <param name="address">地址</param>
+            <param name="value">值</param>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.TryWriteInt32(System.Void*,System.Int32)">
+            <summary>
+            写入内存
+            </summary>
+            <param name="address">地址</param>
+            <param name="value">值</param>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.TryWriteUInt32(System.Void*,System.UInt32)">
+            <summary>
+            写入内存
+            </summary>
+            <param name="address">地址</param>
+            <param name="value">值</param>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.TryWriteInt64(System.Void*,System.Int64)">
+            <summary>
+            写入内存
+            </summary>
+            <param name="address">地址</param>
+            <param name="value">值</param>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.TryWriteUInt64(System.Void*,System.UInt64)">
+            <summary>
+            写入内存
+            </summary>
+            <param name="address">地址</param>
+            <param name="value">值</param>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.TryWriteIntPtr(System.Void*,System.IntPtr)">
+            <summary>
+            写入内存
+            </summary>
+            <param name="address">地址</param>
+            <param name="value">值</param>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.TryWriteUIntPtr(System.Void*,System.UIntPtr)">
+            <summary>
+            写入内存
+            </summary>
+            <param name="address">地址</param>
+            <param name="value">值</param>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.TryWriteSingle(System.Void*,System.Single)">
+            <summary>
+            写入内存
+            </summary>
+            <param name="address">地址</param>
+            <param name="value">值</param>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.TryWriteDouble(System.Void*,System.Double)">
+            <summary>
+            写入内存
+            </summary>
+            <param name="address">地址</param>
+            <param name="value">值</param>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.TryWriteBytes(System.Void*,System.Byte[])">
+            <summary>
+            写入内存
+            </summary>
+            <param name="address">地址</param>
+            <param name="value">值</param>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.TryWriteBytes(System.Void*,System.Byte[],System.UInt32,System.UInt32)">
+            <summary>
+            写入内存
+            </summary>
+            <param name="address">地址</param>
+            <param name="value">值</param>
+            <param name="startIndex">从 <paramref name="value"/> 的指定偏移处开始</param>
+            <param name="length">长度</param>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.TryWriteString(System.Void*,System.String,System.Text.Encoding)">
+            <summary>
+            写入内存
+            </summary>
+            <param name="address">地址</param>
+            <param name="value">值</param>
+            <param name="toEncoding">内存中字符串的编码</param>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.EnumeratePageInfos">
+            <summary>
+            获取所有页面信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.EnumeratePageInfos(System.Void*,System.Void*)">
+            <summary>
+            获取范围内页面信息
+            </summary>
+            <param name="startAddress">起始地址</param>
+            <param name="endAddress">结束地址</param>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.SetProtection(System.Void*,System.UInt32,NativeSharp.MemoryProtection)">
+            <summary>
+            设置内存保护选项
+            </summary>
+            <param name="address">起始地址</param>
+            <param name="size">内存大小</param>
+            <param name="protection">新内存保护选项</param>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.SetProtection(System.Void*,System.UInt32,NativeSharp.MemoryProtection,NativeSharp.MemoryProtection@)">
+            <summary>
+            设置内存保护选项
+            </summary>
+            <param name="address">起始地址</param>
+            <param name="size">内存大小</param>
+            <param name="protection">新内存保护选项</param>
+            <param name="oldProtection">原来的内存保护选项</param>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.AllocMemory(System.UInt32,System.Boolean,System.Boolean)">
+            <summary>
+            分配内存
+            </summary>
+            <param name="size">大小</param>
+            <param name="writable">是否可写</param>
+            <param name="executable">是否可执行</param>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.AllocMemory(System.UInt32,NativeSharp.MemoryProtection)">
+            <summary>
+            分配内存
+            </summary>
+            <param name="size">大小</param>
+            <param name="protection">选项</param>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.AllocMemory(System.Void*,System.UInt32,NativeSharp.MemoryProtection)">
+            <summary>
+            分配内存
+            </summary>
+            <param name="address">地址</param>
+            <param name="size">大小</param>
+            <param name="protection">选项</param>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.FreeMemory(System.Void*)">
+            <summary>
+            释放内存
+            </summary>
+            <param name="address">地址</param>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.FreeMemory(System.Void*,System.UInt32,NativeSharp.MemoryType)">
+            <summary>
+            释放内存
+            </summary>
+            <param name="address">地址</param>
+            <param name="size">大小</param>
+            <param name="type">选项</param>
+            <returns></returns>
+        </member>
+        <member name="P:NativeSharp.NativeProcess.Is64Bit">
+            <summary>
+            是否为64位进程
+            </summary>
+        </member>
+        <member name="P:NativeSharp.NativeProcess.Name">
+            <summary>
+            名称
+            </summary>
+        </member>
+        <member name="P:NativeSharp.NativeProcess.ImagePath">
+            <summary>
+            文件路径
+            </summary>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.GetModules">
+            <summary>
+            获取所有模块
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.GetMainModule">
+            <summary>
+            获取主模块
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.GetModule(System.String)">
+            <summary>
+            获取模块
+            </summary>
+            <param name="moduleName">模块名</param>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.UnsafeGetModule(System.Void*)">
+            <summary>
+            通过模块句柄直接获取模块，只要 <paramref name="moduleHandle"/> 不为零，均会返回一个 <see cref="T:NativeSharp.NativeModule"/> 实例
+            </summary>
+            <param name="moduleHandle">模块句柄</param>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.ToString">
+            <summary />
+        </member>
+        <member name="M:NativeSharp.NativeProcess.GetProcessIdsByName(System.String)">
+            <summary>
+            通过进程名称获取进程ID
+            </summary>
+            <param name="processName">进程名称</param>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.GetAllProcessIds">
+            <summary>
+            获取所有进程ID
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.LoadModule(System.String)">
+            <summary>
+            为当前进程加载模块
+            </summary>
+            <param name="modulePath">模块路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.LoadModule(System.String,NativeSharp.LoadModuleFlags)">
+            <summary>
+            为当前进程加载模块
+            </summary>
+            <param name="modulePath">模块路径</param>
+            <param name="flags"></param>
+            <returns></returns>
+        </member>
+        <member name="P:NativeSharp.NativeProcess.InvalidProcess">
+            <summary>
+            表示一个无效进程
+            </summary>
+        </member>
+        <member name="P:NativeSharp.NativeProcess.CurrentProcess">
+            <summary>
+            当前进程
+            </summary>
+        </member>
+        <member name="P:NativeSharp.NativeProcess.IsCurrentProcess">
+            <summary>
+            当前实例是否当前进程
+            </summary>
+        </member>
+        <member name="P:NativeSharp.NativeProcess.Id">
+            <summary>
+            进程ID
+            </summary>
+        </member>
+        <member name="P:NativeSharp.NativeProcess.Handle">
+            <summary>
+            打开进程时获取的句柄
+            </summary>
+        </member>
+        <member name="P:NativeSharp.NativeProcess.IsInvalid">
+            <summary>
+            当前句柄是否为无效句柄
+            </summary>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.Open(System.UInt32)">
+            <summary>
+            打开进程，失败时返回 <see cref="P:NativeSharp.NativeProcess.InvalidProcess"/>
+            </summary>
+            <param name="id">进程ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.Open(System.UInt32,NativeSharp.ProcessAccess)">
+            <summary>
+            打开进程，失败时返回 <see cref="P:NativeSharp.NativeProcess.InvalidProcess"/>
+            </summary>
+            <param name="id">进程ID</param>
+            <param name="access">权限</param>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.UnsafeOpen(System.Void*)">
+            <summary>
+            通过已有句柄打开进程，并且跳过权限检查，失败时返回 <see cref="P:NativeSharp.NativeProcess.InvalidProcess"/>
+            </summary>
+            <param name="handle">进程句柄</param>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.UnsafeOpen(System.UInt32,System.Void*)">
+            <summary>
+            通过已有句柄打开进程，并且跳过权限检查，失败时返回 <see cref="P:NativeSharp.NativeProcess.InvalidProcess"/>
+            </summary>
+            <param name="id">进程ID</param>
+            <param name="handle">进程句柄</param>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.QuickDemand(NativeSharp.ProcessAccess)">
+            <summary>
+            确保当前实例未被释放并且确保拥有所需权限
+            </summary>
+            <param name="requireAccess">需要的权限</param>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.QuickDemandNoThrow(NativeSharp.ProcessAccess)">
+            <summary>
+            确保当前实例未被释放并且确保拥有所需权限
+            </summary>
+            <param name="requireAccess">需要的权限</param>
+            <returns></returns>
+        </member>
+        <member name="M:NativeSharp.NativeProcess.Dispose">
+            <summary />
+        </member>
+        <member name="T:NativeSharp.Pointer">
+            <summary>
+            指针
+            </summary>
+        </member>
+        <member name="P:NativeSharp.Pointer.ModuleName">
+            <summary>
+            模块名。若 <see cref="P:NativeSharp.Pointer.BaseAddress"/> 为 <see langword="null"/>，下次使用当前指针实例获取地址时，<see cref="P:NativeSharp.Pointer.BaseAddress"/> 将被设置为 <see cref="P:NativeSharp.Pointer.ModuleName"/> 对应的句柄（模块基址）
+            </summary>
+        </member>
+        <member name="P:NativeSharp.Pointer.BaseAddress">
+            <summary>
+            基址
+            </summary>
+        </member>
+        <member name="P:NativeSharp.Pointer.Offsets">
+            <summary>
+            多级偏移
+            </summary>
+        </member>
+        <member name="M:NativeSharp.Pointer.#ctor">
+            <summary>
+            构造器
+            </summary>
+        </member>
+        <member name="M:NativeSharp.Pointer.#ctor(System.String,System.UInt32[])">
+            <summary>
+            构造器
+            </summary>
+            <param name="moduleName">模块名</param>
+            <param name="offsets">多级偏移</param>
+        </member>
+        <member name="M:NativeSharp.Pointer.#ctor(System.Void*,System.UInt32[])">
+            <summary>
+            构造器
+            </summary>
+            <param name="baseAddress">基址</param>
+            <param name="offsets">偏移</param>
+        </member>
+        <member name="M:NativeSharp.Pointer.#ctor(NativeSharp.Pointer)">
+            <summary>
+            构造器
+            </summary>
+            <param name="pointer">指针</param>
+        </member>
+        <member name="T:NativeSharp.MemoryProtection">
+            <summary>
+            内存保护选项
+            </summary>
+        </member>
+        <member name="F:NativeSharp.MemoryProtection.NoAccess">
+            <summary />
+        </member>
+        <member name="F:NativeSharp.MemoryProtection.ReadOnly">
+            <summary />
+        </member>
+        <member name="F:NativeSharp.MemoryProtection.ReadWrite">
+            <summary />
+        </member>
+        <member name="F:NativeSharp.MemoryProtection.WriteCopy">
+            <summary />
+        </member>
+        <member name="F:NativeSharp.MemoryProtection.Execute">
+            <summary />
+        </member>
+        <member name="F:NativeSharp.MemoryProtection.ExecuteRead">
+            <summary />
+        </member>
+        <member name="F:NativeSharp.MemoryProtection.ExecuteReadWrite">
+            <summary />
+        </member>
+        <member name="F:NativeSharp.MemoryProtection.ExecuteWriteCopy">
+            <summary />
+        </member>
+        <member name="F:NativeSharp.MemoryProtection.Guard">
+            <summary />
+        </member>
+        <member name="F:NativeSharp.MemoryProtection.NoCache">
+            <summary />
+        </member>
+        <member name="F:NativeSharp.MemoryProtection.WriteCombine">
+            <summary />
+        </member>
+        <member name="T:NativeSharp.MemoryType">
+            <summary>
+            内存类型选项
+            </summary>
+        </member>
+        <member name="F:NativeSharp.MemoryType.Commit">
+            <summary />
+        </member>
+        <member name="F:NativeSharp.MemoryType.Reserve">
+            <summary />
+        </member>
+        <member name="F:NativeSharp.MemoryType.Decommit">
+            <summary />
+        </member>
+        <member name="F:NativeSharp.MemoryType.Release">
+            <summary />
+        </member>
+        <member name="F:NativeSharp.MemoryType.Free">
+            <summary />
+        </member>
+        <member name="F:NativeSharp.MemoryType.Private">
+            <summary />
+        </member>
+        <member name="F:NativeSharp.MemoryType.Mapped">
+            <summary />
+        </member>
+        <member name="F:NativeSharp.MemoryType.Reset">
+            <summary />
+        </member>
+        <member name="T:NativeSharp.PageInfo">
+            <summary>
+            页面信息
+            </summary>
+        </member>
+        <member name="P:NativeSharp.PageInfo.Address">
+            <summary>
+            起始地址
+            </summary>
+        </member>
+        <member name="P:NativeSharp.PageInfo.Size">
+            <summary>
+            大小
+            </summary>
+        </member>
+        <member name="P:NativeSharp.PageInfo.Protection">
+            <summary>
+            保护
+            </summary>
+        </member>
+        <member name="P:NativeSharp.PageInfo.Type">
+            <summary>
+            类型
+            </summary>
+        </member>
+        <member name="M:NativeSharp.PageInfo.ToString">
+            <summary />
+        </member>
+        <member name="T:NativeSharp.LoadModuleFlags">
+            <summary>
+            模块加载方式
+            </summary>
+        </member>
+        <member name="F:NativeSharp.LoadModuleFlags.AsDatafile">
+            <summary />
+        </member>
+        <member name="F:NativeSharp.LoadModuleFlags.WithAlteredSearchPath">
+            <summary />
+        </member>
+        <member name="F:NativeSharp.LoadModuleFlags.IgnoreCodeAuthzLevel">
+            <summary />
+        </member>
+        <member name="F:NativeSharp.LoadModuleFlags.AsImageResource">
+            <summary />
+        </member>
+        <member name="F:NativeSharp.LoadModuleFlags.AsDatafileExclusive">
+            <summary />
+        </member>
+        <member name="F:NativeSharp.LoadModuleFlags.RequireSignedTarget">
+            <summary />
+        </member>
+        <member name="F:NativeSharp.LoadModuleFlags.SearchDllLoadDir">
+            <summary />
+        </member>
+        <member name="F:NativeSharp.LoadModuleFlags.SearchApplicationDir">
+            <summary />
+        </member>
+        <member name="F:NativeSharp.LoadModuleFlags.SearchUserDirs">
+            <summary />
+        </member>
+        <member name="F:NativeSharp.LoadModuleFlags.SearchSystem32">
+            <summary />
+        </member>
+        <member name="F:NativeSharp.LoadModuleFlags.SearchDefaultDirs">
+            <summary />
+        </member>
+        <member name="T:NativeSharp.NativeEnvironment">
+            <summary>
+            Win32环境
+            </summary>
+        </member>
+        <member name="P:NativeSharp.NativeEnvironment.Is64BitOperatingSystem">
+            <summary>
+            是否为64位操作系统
+            </summary>
+        </member>
+        <member name="T:NativeSharp.ProcessAccess">
+            <summary>
+            进程权限
+            </summary>
+        </member>
+        <member name="F:NativeSharp.ProcessAccess.CreateProcess">
+            <summary />
+        </member>
+        <member name="F:NativeSharp.ProcessAccess.CreateThread">
+            <summary />
+        </member>
+        <member name="F:NativeSharp.ProcessAccess.DuplicateHandle">
+            <summary />
+        </member>
+        <member name="F:NativeSharp.ProcessAccess.QueryInformation">
+            <summary />
+        </member>
+        <member name="F:NativeSharp.ProcessAccess.QueryLimitedInformation">
+            <summary />
+        </member>
+        <member name="F:NativeSharp.ProcessAccess.SetInformation">
+            <summary />
+        </member>
+        <member name="F:NativeSharp.ProcessAccess.SetQuota">
+            <summary />
+        </member>
+        <member name="F:NativeSharp.ProcessAccess.SuspendResume">
+            <summary />
+        </member>
+        <member name="F:NativeSharp.ProcessAccess.Synchronize">
+            <summary />
+        </member>
+        <member name="F:NativeSharp.ProcessAccess.Terminate">
+            <summary />
+        </member>
+        <member name="F:NativeSharp.ProcessAccess.MemoryOperation">
+            <summary />
+        </member>
+        <member name="F:NativeSharp.ProcessAccess.MemoryRead">
+            <summary />
+        </member>
+        <member name="F:NativeSharp.ProcessAccess.MemoryWrite">
+            <summary />
+        </member>
+        <member name="F:NativeSharp.ProcessAccess.AllAccess">
+            <summary />
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35013.160
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Antidump", "Antidump.csproj", "{D64E3F3C-75B0-4797-8EDB-22CA9B08A980}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D64E3F3C-75B0-4797-8EDB-22CA9B08A980}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D64E3F3C-75B0-4797-8EDB-22CA9B08A980}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D64E3F3C-75B0-4797-8EDB-22CA9B08A980}.Debug|x64.ActiveCfg = Debug|x64
+		{D64E3F3C-75B0-4797-8EDB-22CA9B08A980}.Debug|x64.Build.0 = Debug|x64
+		{D64E3F3C-75B0-4797-8EDB-22CA9B08A980}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D64E3F3C-75B0-4797-8EDB-22CA9B08A980}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D64E3F3C-75B0-4797-8EDB-22CA9B08A980}.Release|x64.ActiveCfg = Release|x64
+		{D64E3F3C-75B0-4797-8EDB-22CA9B08A980}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2538D7E9-9A3E-4854-9746-CD9D4DBCF87E}
+	EndGlobalSection
+EndGlobal
