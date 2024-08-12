@@ -1,5 +1,5 @@
 # ExtremeAntidump
-A powerful anti-dump, which works even on packaged assemblies.
+A powerful anti-dump, which works even on packaged assemblies. You can use this however you want, as long as you give me a star on this repo.
 
 how to use: 
 
