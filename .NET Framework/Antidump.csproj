@@ -58,7 +58,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="dnlib, Version=4.4.0.0, Culture=neutral, PublicKeyToken=50e96378b6e77999, processorArchitecture=MSIL">
-      <HintPath>..\packages\dnlib.4.4.0\lib\net35\dnlib.dll</HintPath>
+      <HintPath>packages\dnlib.4.4.0\lib\net35\dnlib.dll</HintPath>
     </Reference>
     <Reference Include="NativeSharp, Version=3.0.0.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\NativeSharp-lib.3.0.0.1\lib\net40\NativeSharp.dll</HintPath>

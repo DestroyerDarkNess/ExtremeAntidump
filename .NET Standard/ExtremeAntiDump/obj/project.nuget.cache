@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "ySecO1Y1pRo=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\s4lsa\\source\\repos\\ExtremeAntiDump\\ExtremeAntiDump\\ExtremeAntiDump.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\s4lsa\\.nuget\\packages\\dnlib\\4.4.0\\dnlib.4.4.0.nupkg.sha512",
+    "C:\\Users\\s4lsa\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\s4lsa\\.nuget\\packages\\nativesharp-lib\\3.0.0.1\\nativesharp-lib.3.0.0.1.nupkg.sha512",
+    "C:\\Users\\s4lsa\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
+    "C:\\Users\\s4lsa\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512",
+    "C:\\Users\\s4lsa\\.nuget\\packages\\system.reflection.emit.ilgeneration\\4.7.0\\system.reflection.emit.ilgeneration.4.7.0.nupkg.sha512",
+    "C:\\Users\\s4lsa\\.nuget\\packages\\system.reflection.emit.lightweight\\4.7.0\\system.reflection.emit.lightweight.4.7.0.nupkg.sha512"
+  ],
+  "logs": []
+}

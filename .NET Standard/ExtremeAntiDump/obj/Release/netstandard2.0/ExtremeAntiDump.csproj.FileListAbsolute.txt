@@ -1,0 +1,10 @@
+C:\Users\s4lsa\source\repos\ExtremeAntiDump\ExtremeAntiDump\bin\Release\netstandard2.0\ExtremeAntiDump.deps.json
+C:\Users\s4lsa\source\repos\ExtremeAntiDump\ExtremeAntiDump\bin\Release\netstandard2.0\ExtremeAntiDump.dll
+C:\Users\s4lsa\source\repos\ExtremeAntiDump\ExtremeAntiDump\bin\Release\netstandard2.0\ExtremeAntiDump.pdb
+C:\Users\s4lsa\source\repos\ExtremeAntiDump\ExtremeAntiDump\obj\Release\netstandard2.0\ExtremeAntiDump.csproj.AssemblyReference.cache
+C:\Users\s4lsa\source\repos\ExtremeAntiDump\ExtremeAntiDump\obj\Release\netstandard2.0\ExtremeAntiDump.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\s4lsa\source\repos\ExtremeAntiDump\ExtremeAntiDump\obj\Release\netstandard2.0\ExtremeAntiDump.AssemblyInfoInputs.cache
+C:\Users\s4lsa\source\repos\ExtremeAntiDump\ExtremeAntiDump\obj\Release\netstandard2.0\ExtremeAntiDump.AssemblyInfo.cs
+C:\Users\s4lsa\source\repos\ExtremeAntiDump\ExtremeAntiDump\obj\Release\netstandard2.0\ExtremeAntiDump.csproj.CoreCompileInputs.cache
+C:\Users\s4lsa\source\repos\ExtremeAntiDump\ExtremeAntiDump\obj\Release\netstandard2.0\ExtremeAntiDump.dll
+C:\Users\s4lsa\source\repos\ExtremeAntiDump\ExtremeAntiDump\obj\Release\netstandard2.0\ExtremeAntiDump.pdb

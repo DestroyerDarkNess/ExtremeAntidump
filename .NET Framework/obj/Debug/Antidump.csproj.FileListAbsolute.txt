@@ -26,3 +26,17 @@ C:\Users\s4lsa\source\repos\Hydra\ExtremeAntiDump\obj\Debug\Antidump.dll
 C:\Users\s4lsa\source\repos\Hydra\ExtremeAntiDump\obj\Debug\Antidump.pdb
 C:\Users\s4lsa\source\repos\Hydra\ExtremeAntiDump\bin\Debug\NativeSharp.dll
 C:\Users\s4lsa\source\repos\Hydra\ExtremeAntiDump\bin\Debug\NativeSharp.xml
+C:\Users\s4lsa\Documents\GitHub\ExtremeAntidump\ExtremeAntiDump\obj\Debug\Antidump.csproj.AssemblyReference.cache
+C:\Users\s4lsa\Documents\GitHub\ExtremeAntidump\ExtremeAntiDump\obj\Debug\Antidump.Properties.Resources.resources
+C:\Users\s4lsa\Documents\GitHub\ExtremeAntidump\ExtremeAntiDump\obj\Debug\Antidump.csproj.GenerateResource.cache
+C:\Users\s4lsa\Documents\GitHub\ExtremeAntidump\ExtremeAntiDump\obj\Debug\Antidump.csproj.CoreCompileInputs.cache
+C:\Users\s4lsa\Documents\GitHub\ExtremeAntidump\ExtremeAntiDump\obj\Debug\Antidump.dll
+C:\Users\s4lsa\Documents\GitHub\ExtremeAntidump\ExtremeAntiDump\obj\Debug\Antidump.pdb
+C:\Users\s4lsa\Documents\GitHub\ExtremeAntidump\ExtremeAntiDump\bin\Debug\Antidump.dll.config
+C:\Users\s4lsa\Documents\GitHub\ExtremeAntidump\ExtremeAntiDump\bin\Debug\Antidump.dll
+C:\Users\s4lsa\Documents\GitHub\ExtremeAntidump\ExtremeAntiDump\bin\Debug\Antidump.pdb
+C:\Users\s4lsa\Documents\GitHub\ExtremeAntidump\ExtremeAntiDump\bin\Debug\dnlib.dll
+C:\Users\s4lsa\Documents\GitHub\ExtremeAntidump\ExtremeAntiDump\bin\Debug\NativeSharp.dll
+C:\Users\s4lsa\Documents\GitHub\ExtremeAntidump\ExtremeAntiDump\bin\Debug\dnlib.xml
+C:\Users\s4lsa\Documents\GitHub\ExtremeAntidump\ExtremeAntiDump\bin\Debug\NativeSharp.xml
+C:\Users\s4lsa\Documents\GitHub\ExtremeAntidump\ExtremeAntiDump\obj\Debug\Antidump.csproj.Up2Date
